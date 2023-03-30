@@ -28,6 +28,10 @@ passport.use(new JwtStrategy(opts, function(jwt_payload, done) {
   }
 }));
 
+app.listen(port, () => {
+      console.log(`Server is listening on port ${port}`);
+    });
+
 app.post('/api/login', (req, res) => {
   const { username, password } = req.body;
   if (isValidUser(username, password)) {
@@ -116,6 +120,4 @@ function getUserById(id) {
     return user.id;
     }
     
-    app.listen(port, () => {
-      console.log(`Server is listening on port ${port}`);
-    });
+   
